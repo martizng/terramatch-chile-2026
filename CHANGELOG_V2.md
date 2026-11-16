@@ -1,4 +1,4 @@
-# TerraMatch Chile — v2 visual preview
+# TerraMatch Chile — v2 final
 
 ## New user-facing experience
 - Subtle animated orbital-style hero and starfield, with `prefers-reduced-motion` accessibility support.
@@ -21,3 +21,9 @@
 - New Plotly comparison charts generated for each site in both languages using a simulated Streamlit environment.
 - Offline north/south Plotly map construction checked.
 - **Browser/Streamlit Cloud end-to-end rendering still needs to be tested once deployed.**
+
+## v2 final — Disclosure and scientific communication
+- Added bilingual, four-item AI use disclosure in a readable bordered card.
+- Removed the additional ASTER stereo-quality check block in Spanish and English.
+- Kept the independently documented NUM-related **general limitation** unchanged.
+- All source data files remain unchanged.

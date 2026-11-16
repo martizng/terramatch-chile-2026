@@ -1,4 +1,4 @@
-"""TerraMatch Chile — guided Streamlit explorer, v2 preview (independent visual/interaction layer).
+"""TerraMatch Chile — guided Streamlit explorer, v2 final (independent visual/interaction layer).
 
 Run with `streamlit run app.py`. All reported scores come from Rojas v0.7.
 This application does not calculate new scientific results and never turns missing
@@ -96,6 +96,15 @@ section[data-testid="stSidebar"] [data-testid="stMarkdownContainer"] > p,
 section[data-testid="stSidebar"] [data-testid="stCaptionContainer"] p {color:#E3F1F5!important;}
 section[data-testid="stSidebar"] [data-baseweb="select"] [role="combobox"],
 section[data-testid="stSidebar"] [data-baseweb="select"] [role="combobox"] * {color:#173C52!important;}
+/* Final v2: high-contrast disclosure card for transparent AI use. */
+.tm-ai-disclosure {background:linear-gradient(135deg,#F0F8FA,#FFFFFF);border:1px solid #B8D8DF;
+ border-left:5px solid #167C88;border-radius:17px;padding:22px 26px;margin:18px 0 12px;
+ box-shadow:0 4px 15px rgba(20,67,86,.05);}
+.tm-ai-disclosure h3 {font-size:1.27rem;color:#173B4B!important;margin:0 0 12px;}
+.tm-ai-disclosure ul {padding-left:1.4rem;margin:0;}
+.tm-ai-disclosure li {font-size:.93rem;line-height:1.65;color:#2B4755!important;margin:0 0 11px;}
+.tm-ai-disclosure li:last-child {margin-bottom:0;}
+.tm-ai-disclosure strong {color:#143A4B!important;}
 </style>''', unsafe_allow_html=True)
 
 # Independent v2 UI layer; scientific data sources remain unchanged.
@@ -153,18 +162,17 @@ TR={
 'data_kicker':'TRANSPARENCIA','data_title':'Datos abiertos, alcance claro y limitaciones visibles',
 'data_sources':'Fuentes principales','limits':'Limitaciones que debes conocer','limits1':'Cobertura restringida: cuatro teselas ASTER y 1.262 celdas con topografía, no un muestreo nacional exhaustivo.',
 'limits2':'La procedencia de píxeles ASTER (archivos NUM) aún no se integra explícitamente al cálculo en v0.7.',
-'aster_quality_title':'Control adicional de calidad ASTER',
-'aster_quality_body':'Según el control de calidad comunicado por el equipo, en las cuatro áreas piloto revisadas el 100 % de los píxeles analizados proviene de mediciones estéreo ASTER (11–29 escenas) y no presenta relleno. Esta verificación adicional fue comunicada por el equipo y aún no figura en AFIRMACIONES_Y_EVIDENCIA.md; debe archivarse su informe NUM para considerarla plenamente respaldada. Las máscaras NUM todavía no se aplican explícitamente dentro del motor v0.7. No equivale a certificar todas las teselas ni todo Chile.',
 'limits3':'El filtro geológico lunar utiliza una fuente derivada y una leyenda a escala regional que necesitan confirmación.',
 'limits4':'Dos delimitaciones de sitios son proxies geológicos: Pajonales y las coladas del Llaima.',
 'limits5':'La validación del motor y la reproducibilidad de las fuentes planetarias requieren completar la auditoría independiente.',
 'limits6':'No se infiere habitabilidad, equivalencia geológica completa, rutas de vehículos ni seguridad de aterrizaje.',
 'limits7':'El perfil de Elysium Planitia usa solo 5 de 25 ventanas MOLA con al menos 50 % de observaciones directas; aproximadamente 69 % del recorte no tiene medición directa y la interpretación debe reconocer el uso de valores interpolados.',
 'limits8':'El informe científico advierte que IMERG puede sobrestimar la precipitación en el desierto. Como sensibilidad, CR2MET produjo percentiles similares para Yungay y Pajonales; esto no elimina la incertidumbre del filtro de aridez.',
+'ai_disclosure_title':'Uso de inteligencia artificial',
 'data_status':'¿Qué significa cada estado?','scored_label':'Con puntaje','outside_label':'Fuera del filtro','insuff_label':'Información insuficiente','nofilter_label':'Sin información del filtro',
 'data_quality':'Consulta los archivos, resultados y método reproducible desde GitHub.',
 'footer':'Desarrollado por Team Joseadores · Universidad de La Frontera, Temuco, Chile · NASA Space Apps Challenge 2026 · Prototipo de investigación (no afiliación ni aval de NASA).',
-'pilot_badge':'Vista previa v2 · Datos v0.7',
+'pilot_badge':'Versión v2 · Datos v0.7',
 'source_code':'Código fuente',
 'method_link':'Metodología',
 'full_method':'Consultar metodología técnica completa',
@@ -262,18 +270,17 @@ TR={
 'data_kicker':'TRANSPARENCY','data_title':'Open data, clearly stated scope and limitations',
 'data_sources':'Main sources','limits':'Important limitations','limits1':'Limited coverage: four ASTER tiles and 1,262 cells with terrain data, not an exhaustive national sample.',
 'limits2':'ASTER NUM pixel-provenance masks are not yet explicitly incorporated into scoring in v0.7.',
-'aster_quality_title':'Additional ASTER data-quality check',
-'aster_quality_body':'According to the quality check reported by the team, all pixels assessed in the four reviewed pilot areas originate from ASTER stereo measurements (11–29 scenes), with no filling. This additional finding was reported by the team and is not yet documented in AFIRMACIONES_Y_EVIDENCIA.md; the NUM quality report should be archived before treating it as fully verified. NUM masks are not yet explicitly applied within the v0.7 scoring engine. This is not a quality certification for all four tiles or for Chile as a whole.',
 'limits3':'The lunar volcanic-unit filter relies on a derived regional geological layer requiring source and legend verification.',
 'limits4':'Two site outlines are geological proxies: Pajonales and the mapped Llaima lava-flow sector.',
 'limits5':'Independent end-to-end validation of the engine and planetary source reconstruction remains incomplete.',
 'limits6':'No claims of habitability, full geological equivalence, vehicle routes or landing-site safety are made.',
 'limits7':'The Elysium Planitia reference uses only 5 of 25 MOLA windows with at least 50% direct observations; approximately 69% of the crop lacks direct measurements, so interpolation must be acknowledged.',
 'limits8':'The scientific report warns that IMERG may overestimate desert rainfall. A CR2MET sensitivity analysis yielded similar percentiles for Yungay and Pajonales, but this does not eliminate uncertainty in aridity screening.',
+'ai_disclosure_title':'Use of Artificial Intelligence',
 'data_status':'What do the status flags mean?','scored_label':'Scored','outside_label':'Outside filter','insuff_label':'Insufficient information','nofilter_label':'Missing filter information',
 'data_quality':'Inspect the scientific files, results and reproducible method on GitHub.',
 'footer':'Built by Team Joseadores · Universidad de La Frontera, Temuco, Chile · NASA Space Apps Challenge 2026 · Research prototype (not NASA-endorsed).',
-'pilot_badge':'v2 preview · v0.7 data',
+'pilot_badge':'v2 · v0.7 data',
 'source_code':'Source code',
 'method_link':'Methodology',
 'full_method':'Read the full technical methodology',
@@ -327,6 +334,47 @@ TR={
 for key in set(TR['es']) | set(TR['en']):
     if key not in TR['es'] or key not in TR['en']:
         raise RuntimeError(f'Missing translation for: {key}')
+
+
+# Exact project disclosure, translated without modifying scientific datasets.
+AI_DISCLOSURE = {
+    'en': [
+        (
+            'Claude and Claude Code (Anthropic), analysis lead.',
+            'Used to draft the code of the analysis engine (grid, relief variables, similarity, Monte Carlo, validation), the synthetic-data logic tests, the GIS support scripts (BCN quality control, ASTER download and mosaic, IMERG climatology, CR2MET merge, volcanic-unit raster), the figures and parts of the technical documentation. Claude Code also helped locate and download the public copy of the SERNAGEOMIN geological map. All code was reviewed and run by the team on their own computers with real data. Code files carry an "AI-Assisted" header and every use is logged in AI_LOG.md.'
+        ),
+        (
+            'Claude (Anthropic), coordinator.',
+            "Used to draft and edit the project summary, detailed description, demo script and submission checklists from the team's technical document and result files."
+        ),
+        (
+            'ChatGPT (OpenAI), web development support.',
+            "Used to assist in the creation and development of the project's website, including its structure, interface design, layout, and code implementation. The team reviewed and integrated the generated code to ensure the website accurately presents the project's methodology, analysis, and results."
+        ),
+        (
+            'AI usage transparency.',
+            'No data values or results were generated by AI. All scores come from processing the NASA and Chilean datasets listed above; the synthetic data in the tests checks logic only and is never shown as a result.'
+        ),
+    ],
+    'es': [
+        (
+            'Claude y Claude Code (Anthropic), responsable del análisis.',
+            'Se utilizaron para elaborar el código del motor de análisis (grilla, variables de relieve, similitud, Monte Carlo y validación), las pruebas de lógica con datos sintéticos, los scripts de apoyo SIG (control de calidad de BCN, descarga y mosaico de ASTER, climatología IMERG, integración con CR2MET y ráster de unidades volcánicas), las figuras y partes de la documentación técnica. Claude Code también ayudó a localizar y descargar la copia pública del mapa geológico de SERNAGEOMIN. El equipo revisó y ejecutó todo el código en sus propios computadores con datos reales. Los archivos de código llevan el encabezado «AI-Assisted» y cada uso está registrado en AI_LOG.md.'
+        ),
+        (
+            'Claude (Anthropic), coordinación.',
+            'Se utilizó para redactar y editar el resumen del proyecto, la descripción detallada, el guion de la demostración y las listas de verificación de la postulación, basándose en el documento técnico y los archivos de resultados del equipo.'
+        ),
+        (
+            'ChatGPT (OpenAI), apoyo al desarrollo web.',
+            'Se utilizó como apoyo para crear y desarrollar la página web del proyecto, incluyendo su estructura, diseño de interfaz, distribución visual e implementación del código. El equipo revisó e integró el código generado para asegurar que la página presente correctamente la metodología, el análisis y los resultados del proyecto.'
+        ),
+        (
+            'Transparencia en el uso de IA.',
+            'La IA no generó ningún valor de datos ni resultado científico. Todos los puntajes provienen del procesamiento de los datos NASA y chilenos indicados anteriormente; los datos sintéticos de las pruebas se utilizan exclusivamente para comprobar la lógica y nunca se presentan como resultados.'
+        ),
+    ],
+}
 
 if 'lang' not in st.session_state: st.session_state.lang='es'
 if 'page' not in st.session_state: st.session_state.page='home'
@@ -644,8 +692,6 @@ elif selection=='data':
             c2.markdown(f'[{t["source_link"]} ↗]({link})')
     st.subheader(t['limits'])
     for i in range(1,9):st.markdown(f'**{i}.** {t["limits"+str(i)]}')
-    st.subheader(t['aster_quality_title'])
-    note(t['aster_quality_body'])
     st.subheader(t['data_status'])
     statuses=[('scored_label','✅',('Con información suficiente y filtro aprobado.','Sufficient data and passes screening.')),
               ('outside_label','🚫',('No cumple el filtro; no se calcula similitud.','Fails the screening rule; no score is computed.')),
@@ -653,6 +699,17 @@ elif selection=='data':
               ('nofilter_label','❔',('Falta la clasificación necesaria para el filtro.','Required screening classification is missing.'))]
     for key,emoji,expl in statuses:
         st.markdown(f'{emoji} **{t[key]}:** {expl[0 if locale=="es" else 1]}')
+    # Bilingual disclosure: preserve official English wording and readable Spanish.
+    disclosure_items = ''.join(
+        '<li><strong>' + escape(label) + '</strong> ' + escape(detail) + '</li>'
+        for label, detail in AI_DISCLOSURE[locale]
+    )
+    st.markdown(
+        '<section class="tm-ai-disclosure" aria-label="' + escape(t['ai_disclosure_title']) + '">'
+        '<h3>' + escape(t['ai_disclosure_title']) + '</h3>'
+        '<ul>' + disclosure_items + '</ul></section>',
+        unsafe_allow_html=True,
+    )
     note(t['data_quality'])
     st.markdown(f'[📂 {t["source_code"]}](https://github.com/martizng/terramatch-chile/tree/integracion-motor-rojas-v07) · [📄 {t["review_link"]}](https://github.com/martizng/terramatch-chile/blob/integracion-motor-rojas-v07/docs/reviews/motor_v07_integracion.md)')
 

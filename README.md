@@ -63,3 +63,8 @@ All animations are visual-only and may be turned off via OS/browser reduced-moti
 ---
 
 **Versión de prueba:** Esta v2 es una propuesta de interfaz independiente. No modifica ni los resultados científicos ni la página oficial de TerraMatch Chile. El objetivo es que el equipo pueda evaluar mejoras visuales y de navegación antes de decidir si incorpora alguna de ellas.
+
+## Final disclosure update
+- **Data & Limitations:** includes a high-contrast, bilingual **Use of Artificial Intelligence** card with four paragraphs documenting Claude/Claude Code, coordinator Claude, ChatGPT support and AI transparency. English wording reproduces the text supplied by the team.
+- Removed the entire standalone **Additional ASTER data-quality check** subsection in both languages. The general limitation about NUM provenance in the v0.7 scoring pipeline remains.
+- No scientific outputs, scores, filters, GIS geometries or maps have been changed.
