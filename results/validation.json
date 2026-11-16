@@ -1,0 +1,106 @@
+{
+  "run_at": "2026-11-15T17:04:47",
+  "config_version": "2.0 (motor v0.6)",
+  "rule": "Report the real outcome. Never change results to match expectations.",
+  "scales": {
+    "slope_p90_deg": "IQR = 11.8353",
+    "relief_m": "IQR = 1.09701",
+    "rough_sd_deg": "IQR = 3.68086"
+  },
+  "excluded_variables": [],
+  "mars": {
+    "status": "computed",
+    "filter": "aridity, GPM IMERG Final V07, mean 2001-2024 <= 250 mm/yr (primary source, doc v2.0)",
+    "counts": {
+      "outside_filter": 21196,
+      "insufficient_data": 9569,
+      "scored": 895
+    },
+    "checks": {
+      "yungay_percentile>=75": {
+        "value": 47.43,
+        "passed": false
+      },
+      "pajonales_percentile>=75": {
+        "value": 63.13,
+        "passed": false
+      },
+      "llullaillaco_percentile<=25": {
+        "value": 8.27,
+        "passed": true
+      },
+      "steep_top5_median_percentile<=25": {
+        "value": 2.51,
+        "passed": true
+      }
+    },
+    "auc_secondary": 1.0,
+    "pending_geometry_sites": [],
+    "sensitivity": {
+      "precip_cr2met_imerg": {
+        "status": "computed",
+        "label": "complementary: CR2MET v2.0 2001-2019 with IMERG fallback <= 250 mm/yr",
+        "counts": {
+          "outside_filter": 20814,
+          "insufficient_data": 9954,
+          "scored": 892
+        },
+        "checks": {
+          "yungay_percentile>=75": {
+            "value": 47.25,
+            "passed": false
+          },
+          "pajonales_percentile>=75": {
+            "value": 63.0,
+            "passed": false
+          },
+          "llullaillaco_percentile<=25": {
+            "value": 7.96,
+            "passed": true
+          },
+          "steep_top5_median_percentile<=25": {
+            "value": 2.52,
+            "passed": true
+          }
+        },
+        "role": "sensitivity only, not the main result"
+      }
+    }
+  },
+  "moon": {
+    "status": "computed",
+    "filter": "volcanic unit, SERNAGEOMIN 1:1,000,000, strict criterion (Pliocene-Quaternary)",
+    "counts": {
+      "outside_filter": 27861,
+      "insufficient_data": 2139,
+      "no_filter_data": 1404,
+      "scored": 256
+    },
+    "checks": {
+      "llaima_flows_S>llaima_cone_S": {
+        "value": 21.83,
+        "passed": true
+      }
+    },
+    "pending_geometry_sites": [],
+    "sensitivity": {
+      "volcanic_broad": {
+        "status": "computed",
+        "label": "complementary: volcanic sequences of any age (broad criterion)",
+        "counts": {
+          "outside_filter": 24133,
+          "insufficient_data": 5577,
+          "no_filter_data": 1404,
+          "scored": 546
+        },
+        "checks": {
+          "llaima_flows_S>llaima_cone_S": {
+            "value": 21.83,
+            "passed": true
+          }
+        },
+        "role": "sensitivity only, not the main result"
+      }
+    }
+  }
+}

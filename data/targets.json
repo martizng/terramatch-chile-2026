@@ -1,0 +1,139 @@
+[
+  {
+    "id": "mars_elysium",
+    "body": "mars",
+    "name": "Elysium Planitia, sector occidental",
+    "test_purpose": "morphology",
+    "source": "https://astrogeology.usgs.gov/search/map/mars_mgs_mola_dem_463m",
+    "n_windows": 5,
+    "variables": {
+      "slope_p90_deg": {
+        "value": 0.44609376803543194,
+        "low": 0.32249620684715286,
+        "high": 0.9023003690106439,
+        "kind": "measured",
+        "status": "computed",
+        "source": "MGS MOLA MEGDR 128 ppd (MEGT44N090HB.IMG, v2.0); derived at 463 m, 5 km windows",
+        "notes": "Calculado con src/features/build_targets.py. Recorte de BJOR verificado píxel a píxel contra MEGT44N090HB.IMG y MEGC44N090HB.IMG (PDS, MGS-M-MOLA-5-MEGDR-L3-V1.0). Solo el 30,6% de los píxeles tiene medición directa; con la regla del doc (ventanas con >= 50% medido) quedan 5 de 25 ventanas, el mínimo exigido. Sensibilidad: con >= 25% (12 ventanas) y con las 25 ventanas, la mediana cambia menos de 0,06° en pendiente P90, 1 m en relieve y 0,02° en rugosidad."
+      },
+      "relief_m": {
+        "value": 15.0,
+        "low": 10.4,
+        "high": 22.0,
+        "kind": "measured",
+        "status": "computed",
+        "source": "MGS MOLA MEGDR 128 ppd (MEGT44N090HB.IMG, v2.0); derived at 463 m, 5 km windows",
+        "notes": "Calculado con src/features/build_targets.py. Recorte de BJOR verificado píxel a píxel contra MEGT44N090HB.IMG y MEGC44N090HB.IMG (PDS, MGS-M-MOLA-5-MEGDR-L3-V1.0). Solo el 30,6% de los píxeles tiene medición directa; con la regla del doc (ventanas con >= 50% medido) quedan 5 de 25 ventanas, el mínimo exigido. Sensibilidad: con >= 25% (12 ventanas) y con las 25 ventanas, la mediana cambia menos de 0,06° en pendiente P90, 1 m en relieve y 0,02° en rugosidad."
+      },
+      "rough_sd_deg": {
+        "value": 0.14587546341969043,
+        "low": 0.10508519656977003,
+        "high": 0.36577072227228635,
+        "kind": "measured",
+        "status": "computed",
+        "source": "MGS MOLA MEGDR 128 ppd (MEGT44N090HB.IMG, v2.0); derived at 463 m, 5 km windows",
+        "notes": "Calculado con src/features/build_targets.py. Recorte de BJOR verificado píxel a píxel contra MEGT44N090HB.IMG y MEGC44N090HB.IMG (PDS, MGS-M-MOLA-5-MEGDR-L3-V1.0). Solo el 30,6% de los píxeles tiene medición directa; con la regla del doc (ventanas con >= 50% medido) quedan 5 de 25 ventanas, el mínimo exigido. Sensibilidad: con >= 25% (12 ventanas) y con las 25 ventanas, la mediana cambia menos de 0,06° en pendiente P90, 1 m en relieve y 0,02° en rugosidad."
+      }
+    },
+    "center": {
+      "lat": 4.5,
+      "lon": 135.9
+    },
+    "pilot_area": "30 x 30 km; lat 4.25-4.75 N, lon 135.65-136.15 E",
+    "product": "MGS MOLA MEGDR 128 ppd (MEGT44N090HB.IMG, v2.0)",
+    "filter": {
+      "type": "max",
+      "column": "precip_mm_yr",
+      "max": 250,
+      "label": "aridity, GPM IMERG Final V07, mean 2001-2024 <= 250 mm/yr (primary source, doc v2.0)"
+    },
+    "input_files": [
+      "elysium_mola_dem.tif",
+      "elysium_mola_counts.tif"
+    ],
+    "pixel_m": [
+      461.7,
+      463.1
+    ],
+    "measured_fraction": 0.306,
+    "elevation_median_m": -2655.0,
+    "sensitivity": {
+      "min_measured_0.25": {
+        "n_windows": 12,
+        "slope_p90_deg": 0.391,
+        "relief_m": 15.0,
+        "rough_sd_deg": 0.132
+      },
+      "all_windows": {
+        "n_windows": 25,
+        "slope_p90_deg": 0.437,
+        "relief_m": 16.0,
+        "rough_sd_deg": 0.127
+      }
+    },
+    "sanity_check": "Elevación mediana del recorte -2.655 m; NASA JPL indica que la elipse de InSight promedia unos -2.650 m (https://www.jpl.nasa.gov/news/press_kits/insight/landing/mission/landing-site)."
+  },
+  {
+    "id": "moon_tranquillitatis",
+    "body": "moon",
+    "name": "Mare Tranquillitatis",
+    "test_purpose": "morphology",
+    "source": "https://pgda.gsfc.nasa.gov/products/54",
+    "n_windows": 25,
+    "variables": {
+      "slope_p90_deg": {
+        "value": 1.166441604417732,
+        "low": 0.9325921019904434,
+        "high": 2.530238654835056,
+        "kind": "measured",
+        "status": "computed",
+        "source": "SLDEM2015 (LOLA + Kaguya TC) 512 ppd; derived at 463 m, 5 km windows",
+        "notes": "25 windows used"
+      },
+      "relief_m": {
+        "value": 58.67613220214844,
+        "low": 38.928963088989256,
+        "high": 112.11882896423343,
+        "kind": "measured",
+        "status": "computed",
+        "source": "SLDEM2015 (LOLA + Kaguya TC) 512 ppd; derived at 463 m, 5 km windows",
+        "notes": "25 windows used"
+      },
+      "rough_sd_deg": {
+        "value": 0.42342688232586306,
+        "low": 0.2230721383162176,
+        "high": 0.9089815087619745,
+        "kind": "measured",
+        "status": "computed",
+        "source": "SLDEM2015 (LOLA + Kaguya TC) 512 ppd; derived at 463 m, 5 km windows",
+        "notes": "25 windows used"
+      }
+    },
+    "center": {
+      "lat": 0.67416,
+      "lon": 23.47314
+    },
+    "pilot_area": "30 x 30 km; lat 0.18-1.17 N, lon 22.98-23.97 E",
+    "product": "SLDEM2015 (LOLA + Kaguya TC) 512 ppd",
+    "filter": {
+      "type": "flag",
+      "column": "volcanic_unit",
+      "label": "volcanic unit, SERNAGEOMIN 1:1,000,000, strict criterion (Pliocene-Quaternary)"
+    },
+    "input_files": [
+      "tranquillitatis_sldem2015_dem.tif"
+    ],
+    "pixel_m": [
+      59.2,
+      59.2
+    ],
+    "measured_fraction": null,
+    "elevation_median_m": -1931.0,
+    "sanity_check": {
+      "apollo11_pixel_elevation_m": -1932.0,
+      "crop_median_m": -1931.0,
+      "note": "Píxel del sitio Apollo 11 (0.67416 N, 23.47314 E) coherente con la mediana del recorte; sin vacíos (SLDEM2015 es un modelo fusionado LOLA+Kaguya, sin capa de conteo). Valores en múltiplos de 0,5 m, coherente con el factor de escala 0,5 del JP2 original."
+    },
+    "measured_fraction_note": "SLDEM2015 no trae capa de conteo; no se aplica el filtro de 50% de medición directa."
+  }
+]
